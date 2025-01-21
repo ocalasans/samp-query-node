@@ -1,21 +1,22 @@
-# SA-MP Query Node
+# samp-query-node
+
 Uma API completa para ambientes **Node.js**, projetada para consultas a servidores SA-MP (San Andreas Multiplayer) e compatível com o OPEN.MP (Open Multiplayer). Oferece recursos avançados de monitoramento e coleta de informações em tempo real.
 
 ### Idiomas
 
-- **English** > [README](Translations/English)
-- **Español** > [README](Translations/Espanol)
-- **Polski** > [README](Translations/Polski)
-- **Türk** > [README](Translations/Turk)
-- **Deutsch** > [README](Translations/Deutsch)
-- **Русский** > [README](Translations/Русский)
-- **Français** > [README](Translations/Francais)
-- **Italiano** > [README](Translations/Italiano)
-- **Svenska** > [README](Translations/Svenska)
+- Deutsch: [README](translations/Deutsch/README.md)
+- English: [README](translations/English/README.md)
+- Español: [README](translations/Espanol/README.md)
+- Français: [README](translations/Francais/README.md)
+- Italiano: [README](translations/Italiano/README.md)
+- Polski: [README](translations/Polski/README.md)
+- Русский: [README](translations/Русский/README.md)
+- Svenska: [README](translations/Svenska/README.md)
+- Türkçe: [README](translations/Turkce/README.md)
 
 ## Índice
 
-- [SA-MP Query Node](#sa-mp-query-node)
+- [samp-query-node](#samp-query-node)
     - [Idiomas](#idiomas)
   - [Índice](#índice)
   - [Sobre a API](#sobre-a-api)
@@ -43,7 +44,8 @@ Uma API completa para ambientes **Node.js**, projetada para consultas a servidor
     - [Otimizações Implementadas](#otimizações-implementadas)
   - [Limitações Técnicas](#limitações-técnicas)
   - [Estrutura de Resposta](#estrutura-de-resposta)
-  - [Comunidade SA-MP](#comunidade-sa-mp)
+  - [Licença](#licença)
+    - [Condições:](#condições)
 
 ## Sobre a API
 
@@ -99,6 +101,7 @@ A API oferece um sistema de consulta completo que permite obter:
 ### Classes Principais
 
 #### 1. DNS_Cache
+
 ```javascript
 class DNS_Cache {
     constructor() {
@@ -120,6 +123,7 @@ Métodos principais:
 - Fallback para hostname em caso de falha na resolução
 
 #### 2. Query_Manager
+
 ```javascript
 class Query_Manager extends EventEmitter {
     constructor() {
@@ -142,6 +146,7 @@ Funcionalidades:
 - Emissão de eventos de conclusão
 
 #### 3. SAMP_Strings
+
 ```javascript
 class SAMP_Strings {
     static charset = [/* conjunto de caracteres SA-MP */];
@@ -208,6 +213,7 @@ O sistema de medição de latência implementa:
 ### Exemplos de Uso
 
 #### 1. Consulta Básica
+
 ```javascript
 const query = require('samp-query-node');
 
@@ -222,6 +228,7 @@ query('127.0.0.1:7777', (erro, resposta) => {
 ```
 
 #### 2. Consulta com Opções Personalizadas
+
 ```javascript
 const opcoes = {
     host: '127.0.0.1',
@@ -247,6 +254,7 @@ query(opcoes, (erro, resposta) => {
 ```
 
 #### 3. Utilizando Promises
+
 ```javascript
 const util = require('util');
 const Query_Async = util.promisify(query);
@@ -281,6 +289,7 @@ async function Requisitar_Servidor() {
 ```
 
 #### 4. Monitoramento Contínuo
+
 ```javascript
 async function Monitorar_Servidor(endereco, intervalo = 60000) {
     const Query_Async = util.promisify(query);
@@ -316,6 +325,7 @@ async function Monitorar_Servidor(endereco, intervalo = 60000) {
 A API implementa um sistema robusto de tratamento de erros:
 
 ### 1. Erros de Conexão
+
 ```javascript
 query('127.0.0.1:7777', (erro, resposta) => {
     if (!resposta.hostname) {
@@ -325,6 +335,7 @@ query('127.0.0.1:7777', (erro, resposta) => {
 ```
 
 ### 2. Timeouts
+
 ```javascript
 const opcoes = {
     host: '127.0.0.1',
@@ -340,6 +351,7 @@ query(opcoes, (erro, resposta) => {
 ```
 
 ### 3. Validação de Dados
+
 ```javascript
 query('127.0.0.1:7777', (erro, resposta) => {
     // Verificações de segurança
@@ -444,6 +456,19 @@ A API retorna um objeto detalhado com todas as informações do servidor:
 }
 ```
 
-## Comunidade SA-MP
+## Licença
 
-- [SA-MP Programming Community](https://discord.com/invite/3fApZh66Tf)
+Esta API está protegido sob a Licença MIT, que permite:
+- ✔️ Uso comercial e privado
+- ✔️ Modificação do código fonte
+- ✔️ Distribuição do código
+- ✔️ Sublicenciamento
+
+### Condições:
+
+- Manter o aviso de direitos autorais
+- Incluir cópia da licença MIT
+
+Para mais detalhes sobre a licença: https://opensource.org/licenses/MIT
+
+**Copyright (c) Calasans - Todos os direitos reservados**
